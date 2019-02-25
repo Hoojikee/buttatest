@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteEngine %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L,QSA]
+AddType application/x-httpd-php .html .htm

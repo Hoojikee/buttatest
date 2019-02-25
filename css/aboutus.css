@@ -1,0 +1,34 @@
+@charset "utf-8";
+.container{
+	padding-top: 1%;
+	margin: 0 auto;
+	background-color: white;
+	width: 100%;
+	display: block;
+}
+h3{
+	font-size: 17px;
+	font-weight: 100;
+	font-family: 'Roboto', sans-serif;
+}
+.container-text{
+	width: 100%;
+	text-align: center;
+	color: #68391A;
+}
+@media screen and (min-width: 805px) {
+	.container{
+		padding-top: 1%;
+		margin: 0 auto;
+		background-color: white;
+		width: 57%;
+		display: flex;
+	}
+	.container-text{
+		margin-left: 0;
+		margin-right: 0;
+		width: 50%;
+		text-align: center;
+		color: #68391A;
+	}
+}

@@ -1,0 +1,208 @@
+@charset "utf-8";
+@font-face { font-family: Bauhaus-Std-Lt; src: url('../fonts/bauhaus-std/BauhausStd-Light.otf'); }
+html {
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+body {
+	margin: 0;
+	background-color: black;
+	font-family: 'Bauhaus-Std-Lt', serif;
+}
+/*mobile logo*/
+.logo-mobile{
+	display: block;
+	z-index: 999;
+	width:15em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.logo-desktop{
+	display:none;
+	z-index: 999;
+}
+
+header {
+	background: var(--background);
+	text-align: center;
+	background-color: black;
+	z-index: 999;
+	position: fixed;
+	margin: 0 auto;
+	width: 100%;
+	padding-bottom: 2%;
+	margin-top: 0%;
+}
+
+.nav-toggle {
+	position: absolute !important;
+	top: -9999px !important;
+	left: -9999px !important;
+}
+
+.nav-toggle-label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: .5em;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+	display: block;
+	background: white;
+	height: 2px;
+	width: 2em;
+	border-radius: 2px;
+	position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+	content: '';
+	position: absolute;
+}
+
+.nav-toggle-label span::before {
+	bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+	top: 7px;
+}
+
+nav {
+	position: absolute;
+	text-align: left;
+	top: 100%;
+	left: 0;
+	background: var(--background);
+	width: 100%;
+	transform: scale(1, 0);
+	transform-origin: top;
+	transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	margin-bottom: 1em;
+	margin-left: 1em;
+}
+
+nav a {
+	text-transform: uppercase;
+	opacity: 0;
+	transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+	color: var(--medBrown);
+}
+
+.nav-toggle:checked ~ nav {
+	transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
+}
+.link{
+	color: var(--lightBrown); 
+	text-decoration: none;
+	font-size: 1.3rem;
+}
+
+@media screen and (min-width: 805px) {
+	
+	.nav-toggle-label {
+		display: none;
+	}
+
+	header {
+		/*display: grid;*/
+		margin: 0 auto;
+		width: 67%;
+		top: 10%;
+		padding-top: 03.7%;
+		position:relative;
+		/*grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;*/
+	}
+
+	nav {
+		all: unset; /* this causes issues with Edge, since it's unsupported */
+
+		/* the following lines are not from my video, but add Edge support */
+		position: relative;
+		transition: none;
+		transform: scale(1,1);
+		background: none;
+		top: initial;
+		left: initial;
+		/* end Edge support stuff */
+		margin-left: auto;
+		margin-right: auto;
+
+		grid-column: 3 / 4;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	nav ul {
+		display: flex;
+	}
+
+	nav li {
+		margin-bottom: 0;
+		margin-left: 3em;
+	}
+
+	nav a {
+		opacity: 1;
+		position: relative;
+	}
+
+	nav a::before {
+		content: '';
+		display: block;
+		height: 2px;
+		background: white;
+		position: absolute;
+		top: -.45em;
+		left: 0;
+		right: 0;
+		transform: scale(0, 1);
+		transition: transform ease-in-out 250ms;
+	}
+
+	nav a:hover::before {
+		transform: scale(1,1);
+	}
+	.logo-mobile{
+		width: 25%;
+		margin-top: 03%;
+		display:none;
+		padding-top:5%;
+	}
+	.logo-desktop{
+		display:flex;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 7.8%;
+		z-index: 999;
+	}
+	.buttons{
+		margin: 0 auto;
+	}
+}
